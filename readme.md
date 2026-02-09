@@ -9,12 +9,10 @@
 - **GitHub Actions** - CI/CD pipeline
 
 ## 📂 Structure
-\`\`\`
 tests/
 ├── e2e/        → Test specifications
 ├── pages/      → Page Object Models
 └── helpers/    → Utility functions
-\`\`\`
 
 ## 🎯 Test Coverage
 ✅ Authentication flows (login, register)
@@ -23,11 +21,10 @@ tests/
 ✅ API-seeded data patterns
 
 ## 🏃 Running Tests
-\`\`\`bash
+bash
 npm test              # Run all tests
 npm run test:headed   # See browser
 npm run report        # View HTML report
-\`\`\`
 
 ## 📊 Reports
 [View latest test report](link-to-github-pages)
@@ -35,11 +32,8 @@ npm run report        # View HTML report
 ## 🔗 Related Projects
 - [API Backend](link-to-api-repo)
 - [Web Frontend](link-to-web-repo)
-\`\`\`
-
 
 ### **Step 5: How to Work Locally**
-\`\`\`
 Your-Projects/
 ├── API-for-Testing/           (Port 3000)
 ├── Web-for-Testing/           (Port 5500)

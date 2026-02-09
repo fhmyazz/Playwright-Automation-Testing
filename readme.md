@@ -39,7 +39,7 @@ npm run report        # View HTML report
 
 ---
 
-### **Step 5: How to Work Locally**
+### Step 5: How to Work Locally
 ```
 Your-Projects/
 ├── API-for-Testing/           (Port 3000)

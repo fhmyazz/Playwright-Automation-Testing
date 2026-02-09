@@ -17,17 +17,17 @@ tests/
 ```
 
 ## 🎯 Test Coverage
-✅ Authentication flows (login, register)
-✅ CRUD operations (posts)
-✅ Cross-browser testing (Chrome, Firefox)
-✅ API-seeded data patterns
+- ✅ Authentication flows (login, register)
+- ✅ CRUD operations (posts)
+- ✅ Cross-browser testing (Chrome, Firefox)
+- ✅ API-seeded data patterns
 
 ## 🏃 Running Tests
-\`\`\`bash
+```bash
 npm test              # Run all tests
 npm run test:headed   # See browser
 npm run report        # View HTML report
-\`\`\`
+```
 
 ## 📊 Reports
 [View latest test report](link-to-github-pages)
@@ -37,11 +37,10 @@ npm run report        # View HTML report
 - [Web Frontend](link-to-web-repo)
 ```
 
----
-
 ### **Step 5: How to Work Locally**
 ```
 Your-Projects/
 ├── API-for-Testing/           (Port 3000)
 ├── Web-for-Testing/           (Port 8080)
 └── QA-Automation-Portfolio/   (Tests)
+```

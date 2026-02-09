@@ -36,7 +36,7 @@ npm run report        # View HTML report
 - [API Backend](link-to-api-repo)
 - [Web Frontend](link-to-web-repo)
 
-## **Step 5: How to Work Locally**
+## **How to Work Locally**
 ```
 Your-Projects/
 ├── API-for-Testing/           (Port 3000)

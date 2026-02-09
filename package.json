@@ -1,0 +1,21 @@
+{
+  "name": "qa-automation-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "report": "playwright show-report",
+    "setup:api": "cd ../API-for-Testing && npm install && node server.js &",
+    "setup:web": "cd ../Web-for-Testing && npx http-server frontend -p 8080 &"
+  },
+  "keywords": ["qa", "playwright", "automation"],
+  "author": "myy",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

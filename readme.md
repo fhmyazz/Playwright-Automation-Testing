@@ -35,7 +35,6 @@ npm run report        # View HTML report
 ## 🔗 Related Projects
 - [API Backend](link-to-api-repo)
 - [Web Frontend](link-to-web-repo)
-```
 
 ### **Step 5: How to Work Locally**
 ```

@@ -1,6 +1,8 @@
-export class LoginPage{
+import { BasePage } from "./BasePage.js"
+
+export class LoginPage extends BasePage{
     constructor(page){
-        this.page = page
+        super(page, '/login.html')
         // locators
         this.usernameInput = '#username'
         this.passwordInput = '#password'
@@ -9,28 +11,19 @@ export class LoginPage{
         this.successMessage = '#success-message'
     }
 
-    async goto(){
-        await this.page.goto('/login.html')
-        // wait for page to be ready!
-        await this.page.waitForLoadState('networkidle')
-    }
-
     async login(username, password){
-        await this.page.fill(this.usernameInput, username)
-        await this.page.fill(this.passwordInput, password)
-        await this.page.click(this.loginButton)
+        await this.fillInput(this.usernameInput, username)
+        await this.fillInput(this.passwordInput, password)
+        await this.clickElement(this.loginButton)
     }
 
     async getErrorText(){
-        await this.page.waitForSelector(this.errorMessage, {
-            state: 'visible',
-            timeout: 5000
-        })
-        return await this.page.textContent(this.errorMessage)
+        await this.page.waitForSelector(this.errorMessage)
+        return await this.getTextContent(this.errorMessage)
     }
     
     async isErrorVisible(){
-        return await this.page.textContent(this.errorMessage)
+        return await this.page.isVisible(this.errorMessage)
     }
 
     async isOnPostsPage(){

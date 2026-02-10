@@ -99,12 +99,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6219,
+                      "duration": 3330,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-09T15:04:15.776Z",
+                      "startTime": "2026-02-10T23:23:38.255Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -133,12 +133,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1607,
+                      "duration": 1102,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-09T15:04:22.260Z",
+                      "startTime": "2026-02-10T23:23:41.835Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -167,12 +167,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1691,
+                      "duration": 1225,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-09T15:04:23.891Z",
+                      "startTime": "2026-02-10T23:23:42.961Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -201,12 +201,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3368,
+                      "duration": 2737,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-09T15:04:25.623Z",
+                      "startTime": "2026-02-10T23:23:44.210Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,7 +216,41 @@
               ],
               "id": "badc1754af1944f68b2b-5bafd3fb600c3553d3a0",
               "file": "login.spec.js",
-              "line": 47,
+              "line": 46,
+              "column": 5
+            },
+            {
+              "title": "check login using non-existing user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1082,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-10T23:23:46.975Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-e4c36a609c4824b20131",
+              "file": "login.spec.js",
+              "line": 62,
               "column": 5
             }
           ]
@@ -226,9 +260,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-09T15:04:08.977Z",
-    "duration": 20373.393,
-    "expected": 4,
+    "startTime": "2026-02-10T23:23:33.072Z",
+    "duration": 15320.867,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

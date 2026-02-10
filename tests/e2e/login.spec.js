@@ -38,18 +38,18 @@ test.describe('Login Page', () => {
     test('should show error with empty fields', async ({page}) => {
         await loginPage.login('', '')
 
-        const errorText = await loginPage.getErrorText()
+        const errorText = (await loginPage.getErrorText()).trim()
         expect(errorText).toBeTruthy()
         expect(errorText).toBe('Please fill all fields')
     })
 
     test('check if login button disable after clicked', async ({page}) => {
-        await page.fill('#username', 'admin')
-        await page.fill('#password', 'admin123')
+        await loginPage.fillInput('#username', 'admin')
+        await loginPage.fillInput('#password', 'admin123')
 
         // click button without waiting for navigation
         // if it's not in var, it'll wait to nav
-        const loginPromise = await page.click('#login-button')
+        const loginPromise = await loginPage.clickElement('#login-button')
 
         // check disabled button
         await expect(page.locator('#login-button')).toBeDisabled()
@@ -66,7 +66,7 @@ test.describe('Login Page', () => {
         await loginPage.login(username, password)
 
         const isErrorVisible = await loginPage.isErrorVisible()
-        await isErrorVisible.toBe(true) 
+        expect(isErrorVisible).toBe(true) 
 
         const errorText = await loginPage.getErrorText()
         expect(errorText).toMatch(/user not found/i)

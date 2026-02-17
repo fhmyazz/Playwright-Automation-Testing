@@ -72,6 +72,5 @@ test.describe('Login Page', () => {
         expect(errorText).toMatch(/user not found/i)
 
         expect(page.url()).toContain('login.html')
-
     })
 })

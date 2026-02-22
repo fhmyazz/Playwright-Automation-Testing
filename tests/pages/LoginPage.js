@@ -12,18 +12,14 @@ export class LoginPage extends BasePage{
     }
 
     async login(username, password){
-        await this.fillInput(this.usernameInput, username)
-        await this.fillInput(this.passwordInput, password)
-        await this.clickElement(this.loginButton)
+        await this.page.getByLabel('Username').fill(username)
+        await this.page.getByLabel('Password').fill(password)
+        await this.page.getByRole('button', {name: 'Login'}).click()
     }
 
     async getErrorText(){
         await this.page.waitForSelector(this.errorMessage)
-        return await this.getTextContent(this.errorMessage)
-    }
-    
-    async isErrorVisible(){
-        return await this.page.isVisible(this.errorMessage)
+        return await this.page.textContent(this.errorMessage)
     }
 
     async isOnPostsPage(){

@@ -21,23 +21,11 @@ export class BasePage{
         }
     }
 
-    async getTextContent(selector){
-        return await this.page.textContent(selector)
-    }
-
     async waitForSelector(selector, options = {}){
         return await this.page.waitForSelector(selector, {
             state: 'visible',
             timeout: 5000,
             ...options
         })
-    }
-
-    async fillInput(selector, value){
-        await this.page.fill(selector, value)
-    }
-
-    async clickElement(selector){
-        await this.page.click(selector)
     }
 }

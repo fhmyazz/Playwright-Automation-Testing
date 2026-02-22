@@ -44,12 +44,12 @@ test.describe('Login Page', () => {
     })
 
     test('check if login button disable after clicked', async ({page}) => {
-        await loginPage.fillInput('#username', 'admin')
-        await loginPage.fillInput('#password', 'admin123')
+        await page.fill('#username', 'admin')
+        await page.fill('#password', 'admin123')
 
         // click button without waiting for navigation
         // if it's not in var, it'll wait to nav
-        const loginPromise = await loginPage.clickElement('#login-button')
+        const loginPromise = await page.click('#login-button')
 
         // check disabled button
         await expect(page.locator('#login-button')).toBeDisabled()
@@ -65,7 +65,7 @@ test.describe('Login Page', () => {
 
         await loginPage.login(username, password)
 
-        const isErrorVisible = await loginPage.isErrorVisible()
+        const isErrorVisible = await loginPage.isVisible('#error-message')
         expect(isErrorVisible).toBe(true) 
 
         const errorText = await loginPage.getErrorText()

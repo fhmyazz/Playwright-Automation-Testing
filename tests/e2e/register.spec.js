@@ -82,4 +82,22 @@ test.describe('Register Page - Negative Case', () => {
         expect(errorText).toBeTruthy()
         expect(errorText).toBe('Please make sure password is matched')
     })
+
+    test('show error when username is exists', async ({page}) => {
+        await registerPage.register('admin', 'mail@mail.com', 'admin123', 'admin123')
+
+        const errorText = (await registerPage.getErrorText()).trim()
+
+        expect(errorText).toBeTruthy()
+        expect(errorText).toBe('Username already exists')
+    })
+
+    test('show error when email is exists', async ({page}) => {
+        await registerPage.register('admin1', 'admin@mail.com', 'admin123', 'admin123')
+
+        const errorText = (await registerPage.getErrorText()).trim()
+
+        expect(errorText).toBeTruthy()
+        expect(errorText).toBe('Email already exists')
+    })
 })

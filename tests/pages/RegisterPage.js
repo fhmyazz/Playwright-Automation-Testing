@@ -4,36 +4,26 @@ export class RegisterPage extends BasePage{
     constructor(page){
         super(page, '/register.html')
 
-        this.username = '#username'
-        this.email = '#email'
-        this.password = '#password'
-        this.confirmPassword = '#confirm-password'
-        this.registerButton = '#register-button'
+        this.usernameInput = page.getByLabel('Username')
+        this.emailInput = page.getByLabel('Email')
+        this.passwordInput = page.getByLabel('Password', {exact: true})
+        this.confirmPasswordInput = page.getByLabel('Confirm Password')
+        this.registerButton = page.getByRole('button', {name: 'Register'})
         this.errorMessage = '#error-message'
         this.successMessage = '#success-message'
     }
 
     async register(username, email, password, confirmPassword){
-        await this.fillInput(this.username = username)
-        await this.fillInput(this.email = email)
-        await this.fillInput(this.password = password)
-        await this.fillInput(this.confirmPassword = confirmPassword)
+        await this.usernameInput.fill(username)
+        await this.emailInput.fill(email)
+        await this.passwordInput.fill(password)
+        await this.confirmPasswordInput.fill(confirmPassword)
 
-        await this.clickElement(this.registerButton)
+        await this.registerButton.click()
     }
 
-    async isRegistrationSucessful(){
-        const url = this.getCurrentURL()
-        return url.includes('login.html')
-    }
-
-    async getErrorText(){
-        await this.waitForSelector(this.errorMessage)
-        return await this.getTextContent(this.errorMessage)
-    }
-
-    async getSuccessText(){
-        await this.waitForSelector(this.successMessage)
-        return await this.getTextContent(this.successMessage)
+    async isRegistrationSuccessful(){
+        await this.page.waitForURL('**/login.html', {timeout: 5000})
+        return this.page.url().includes('login.html')
     }
 }

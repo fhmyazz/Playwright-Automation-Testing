@@ -28,4 +28,14 @@ export class BasePage{
             ...options
         })
     }
+
+    async getErrorText(){
+        await this.waitForSelector(this.errorMessage)
+        return await this.page.textContent(this.errorMessage)
+    }
+
+    async getSuccessText(){
+        await this.waitForSelector(this.successMessage)
+        return await this.page.textContent(this.successMessage)
+    }
 }

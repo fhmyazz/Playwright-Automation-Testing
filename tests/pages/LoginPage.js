@@ -17,11 +17,6 @@ export class LoginPage extends BasePage{
         await this.loginButton.click()
     }
 
-    async getErrorText(){
-        await this.page.waitForSelector(this.errorMessage)
-        return await this.page.textContent(this.errorMessage)
-    }
-
     async isOnPostsPage(){
         await this.page.waitForURL('**/posts.html', {timeout: 5000})
         return this.page.url().includes('posts.html')

@@ -20,6 +20,7 @@ test.describe('Register Page - Positive Case', () => {
         const confirmPassword = password
 
         await registerPage.register(username, email, password, confirmPassword)
+        await expect (registerPage.successMessage).toBeVisible()
 
         let successText = await registerPage.getSuccessText()
         const isRegistered = await registerPage.isRegistrationSuccessful()
@@ -29,7 +30,8 @@ test.describe('Register Page - Positive Case', () => {
         expect(page.url()).toContain('login.html')
         
         await loginPage.login(username, password)
-        
+        await expect (registerPage.successMessage).toBeVisible()
+
         successText = await registerPage.getSuccessText()
         const isLogin = await loginPage.isOnPostsPage()
         
@@ -48,6 +50,7 @@ test.describe('Register Page - Negative Case', () => {
 
     test('show error when register with empty field', async ({page}) => {
         await registerPage.register('username', '', '', '')
+        await expect (registerPage.errorMessage).toBeVisible()
 
         const errorText = (await registerPage.getErrorText()).trim()
         
@@ -67,6 +70,7 @@ test.describe('Register Page - Negative Case', () => {
 
     test('show error when password is less than 6 characters', async ({page}) => {
         await registerPage.register('username', 'mail@mail.com', 'pass', 'pass')
+        await expect (registerPage.errorMessage).toBeVisible()
 
         const errorText = (await registerPage.getErrorText()).trim()
 
@@ -76,6 +80,7 @@ test.describe('Register Page - Negative Case', () => {
 
     test('show error when password is not matched', async ({page}) => {
         await registerPage.register('username', 'email@mail.com', 'password', 'failedpassword')
+        await expect (registerPage.errorMessage).toBeVisible()
 
         const errorText = (await registerPage.getErrorText()).trim()
 
@@ -85,6 +90,7 @@ test.describe('Register Page - Negative Case', () => {
 
     test('show error when username is exists', async ({page}) => {
         await registerPage.register('admin', 'mail@mail.com', 'admin123', 'admin123')
+        await expect (registerPage.errorMessage).toBeVisible()
 
         const errorText = (await registerPage.getErrorText()).trim()
 
@@ -94,6 +100,7 @@ test.describe('Register Page - Negative Case', () => {
 
     test('show error when email is exists', async ({page}) => {
         await registerPage.register('admin1', 'admin@mail.com', 'admin123', 'admin123')
+        await expect (registerPage.errorMessage).toBeVisible()
 
         const errorText = (await registerPage.getErrorText()).trim()
 

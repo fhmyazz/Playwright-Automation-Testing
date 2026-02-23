@@ -30,12 +30,12 @@ export class BasePage{
     }
 
     async getErrorText(){
-        await this.waitForSelector(this.errorMessage)
-        return await this.page.textContent(this.errorMessage)
+        // await expect(this.errorMessage).toBeVisible()
+        return await this.errorMessage.textContent()
     }
 
     async getSuccessText(){
-        await this.waitForSelector(this.successMessage)
-        return await this.page.textContent(this.successMessage)
+        // await expect(this.successMessage).toBeVisible()
+        return await this.successMessage.textContent()
     }
 }

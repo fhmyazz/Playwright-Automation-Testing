@@ -54,6 +54,7 @@ test.describe('Login Page - Negative Case', () => {
         const password = 'admin123'
 
         await loginPage.login('', password)
+        await expect (loginPage.errorMessage).toBeVisible()
 
         const errorText = await loginPage.getErrorText()
         expect(errorText).toBeTruthy()
@@ -62,6 +63,7 @@ test.describe('Login Page - Negative Case', () => {
 
     test('should show error with empty fields', async ({page}) => {
         await loginPage.login('', '')
+        await expect (loginPage.errorMessage).toBeVisible()
 
         const errorText = (await loginPage.getErrorText()).trim()
         expect(errorText).toBeTruthy()
@@ -73,10 +75,8 @@ test.describe('Login Page - Negative Case', () => {
         const password = 'wrongpassword'
     
         await loginPage.login(username, password)
-    
-        const isErrorVisible = await loginPage.isVisible('#error-message')
-        expect(isErrorVisible).toBe(true) 
-    
+        await expect (loginPage.errorMessage).toBeVisible()
+
         const errorText = await loginPage.getErrorText()
         expect(errorText).toMatch(/user not found/i)
     

@@ -7,8 +7,8 @@ export class LoginPage extends BasePage{
         this.usernameInput = page.getByLabel('Username')
         this.passwordInput = page.getByLabel('Password')
         this.loginButton = page.getByRole('button', {name: 'Login'})
-        this.errorMessage = '#error-message'
-        this.successMessage = '#success-message'
+        this.errorMessage = page.getByRole('alert')
+        this.successMessage = page.getByRole('status')
     }
 
     async login(username, password){

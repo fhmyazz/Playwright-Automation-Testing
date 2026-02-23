@@ -9,8 +9,8 @@ export class RegisterPage extends BasePage{
         this.passwordInput = page.getByLabel('Password', {exact: true})
         this.confirmPasswordInput = page.getByLabel('Confirm Password')
         this.registerButton = page.getByRole('button', {name: 'Register'})
-        this.errorMessage = '#error-message'
-        this.successMessage = '#success-message'
+        this.errorMessage = page.getByRole('alert')
+        this.successMessage = page.getByRole('status')
     }
 
     async register(username, email, password, confirmPassword){

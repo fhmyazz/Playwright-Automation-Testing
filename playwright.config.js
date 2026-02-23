@@ -24,7 +24,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npx http-server ../basic_web/frontend -p 5500',
+    command: 'npx http-server ../Web-for-Testing/frontend -p 5500',
     port: 5500,
     timeout: 120 * 1000,
     reuseExistingServer: true,

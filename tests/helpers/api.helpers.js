@@ -13,6 +13,17 @@ export async function getAuthToken(request) {
     return body.data.token
 }
 
+// get post
+export async function getPostsViaAPI(request, token){
+    const response = await request.get(`${BASE_URL}/api/posts`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+
+    return await response.json()
+}
+
 // create post
 export async function createPostViaAPI(request, token, postData){
     const response = await request.post(`${BASE_URL}/api/posts`, {

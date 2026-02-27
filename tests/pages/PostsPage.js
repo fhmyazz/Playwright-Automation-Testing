@@ -1,4 +1,6 @@
-export class PostsPage{
+import { BasePage } from "./BasePage.js"
+
+export class PostsPage extends BasePage{
     constructor(page){
         super(page, '/posts.html')
 
@@ -9,5 +11,4 @@ export class PostsPage{
         this.errorText = page.getByRole('alert')
     }
 
-    
 }

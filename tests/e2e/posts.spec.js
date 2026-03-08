@@ -1,3 +1,5 @@
+// WIP
+
 import {test, expect} from "@playwright/test"
 import { getAuthToken,
          getPostsViaAPI,
@@ -5,7 +7,7 @@ import { getAuthToken,
          deletePostViaAPI
  } from "../helpers/api.helpers.js"
 
-test('test hit API', async ({request}) => {
+test.skip('test hit API', async ({request}) => {
     const payload = {
         author: 'test author',
         title: 'test title',

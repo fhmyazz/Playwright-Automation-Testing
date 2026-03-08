@@ -29,12 +29,9 @@ npm run test:headed   # See browser
 npm run report        # View HTML report
 ```
 
-## 📊 Reports
-[View latest test report](link-to-github-pages)
-
 ## 🔗 Related Projects
-- [API Backend](link-to-api-repo)
-- [Web Frontend](link-to-web-repo)
+- [API Backend](https://github.com/fhmyazz/API-for-Testing)
+- [Web Frontend](https://github.com/fhmyazz/Web-for-Testing)
 
 ## **How to Work Locally**
 ```
@@ -43,3 +40,12 @@ Your-Projects/
 ├── Web-for-Testing/           (Port 8080)
 └── QA-Automation-Portfolio/   (Tests)
 ```
+
+## Current Progress
+- Login automation
+- Register automation
+
+## Work in Progress
+- Posts CRUD testing
+- API seeding
+- Full E2E workflow

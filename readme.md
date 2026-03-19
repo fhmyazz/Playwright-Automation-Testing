@@ -46,6 +46,5 @@ Your-Projects/
 - Register automation
 
 ## Work in Progress
-- Posts CRUD testing
-- API seeding
+- Cross-browser testing
 - Full E2E workflow

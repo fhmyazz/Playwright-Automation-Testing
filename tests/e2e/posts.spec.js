@@ -3,7 +3,8 @@ import {PostsPage} from "../pages/PostsPage.js"
 import { getAuthToken,
          getPostsViaAPI,
          createPostViaAPI,
-         deletePostViaAPI
+         deletePostViaAPI,
+         updatePostViaAPI
  } from "../helpers/api.helpers.js"
 
 test.describe('Posts Page', () => {
@@ -29,6 +30,27 @@ test.describe('Posts Page', () => {
             content: 'test content'
         }
         await createPostViaAPI(request, authToken, payload)
+
+        await page.reload()
+        await postsPage.hasPost(payload.title)
+    })
+
+    test('should update post via API', async ({page, request}) => {
+        const payload = {
+            author: 'updated author',
+            title: `updated title ${Date.now()}`,
+            content: `updated content ${Date.now()}`
+        }
+        const posts = await getPostsViaAPI(request, authToken)
+        let postId
+
+        if(!(posts.data && posts.data.posts)){
+            const created = await createPostViaAPI(request, authToken, payload)
+            postId = created.data.id            
+        }else{
+            postId = posts.data.posts[0].id
+        }
+        await updatePostViaAPI(request, authToken, postId, payload)
 
         await page.reload()
         await postsPage.hasPost(payload.title)

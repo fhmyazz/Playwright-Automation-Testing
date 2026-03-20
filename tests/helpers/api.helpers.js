@@ -36,6 +36,17 @@ export async function createPostViaAPI(request, token, postData){
     return await response.json()
 }
 
+export async function updatePostViaAPI(request, token, postId, updatedData){
+    const response = await request.patch(`${BASE_URL}/api/posts/${postId}`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        data: updatedData
+    })
+
+    return await response.json()
+}
+
 export async function deletePostViaAPI(request, token, postId){
     const response = await request.delete(`${BASE_URL}/api/posts/${postId}`, {
         headers: {

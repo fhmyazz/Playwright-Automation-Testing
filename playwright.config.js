@@ -20,7 +20,8 @@ export default defineConfig({
   },
 
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } }
+    { name: 'chromium', use: { browserName: 'chromium' } },
+    { name: 'firefox', use: {browserName: 'firefox'}}
   ],
 
   webServer: {

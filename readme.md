@@ -36,10 +36,10 @@ npm run report        # View HTML report
 ```
 
 ## 🎯 Key Features
-### ✅ Page Object Model (POM)
-### ✅ API Seeding Pattern
-### ✅ localstorage Injection
-### ✅ Cross-browser Testing
+- ✅ Page Object Model (POM)
+- ✅ API Seeding Pattern
+- ✅ localstorage Injection
+- ✅ Cross-browser Testing
 
 
 

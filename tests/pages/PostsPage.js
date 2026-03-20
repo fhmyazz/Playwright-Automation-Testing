@@ -25,9 +25,4 @@ export class PostsPage extends BasePage{
         await this.newPostButton.click()
         await this.page.waitForURL('**/create-post.html')
     }
-
-    async logout(){
-        await this.logoutButton.click()
-        await this.page.waitForURL('**/login.html')
-    }
 }

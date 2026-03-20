@@ -38,4 +38,13 @@ export class BasePage{
         // await expect(this.successMessage).toBeVisible()
         return await this.successMessage.textContent()
     }
+    
+    async getToken(){
+        return await this.page.evaluate(() => localStorage.getItem('token'))
+    }
+
+    async logout(){
+        await this.logoutButton.click()
+        await this.page.waitForURL('**/login.html')
+    }
 }

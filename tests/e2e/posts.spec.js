@@ -47,14 +47,14 @@ test.describe('Posts Page', () => {
         await expect(postsPage.emptyState).toBeVisible()
     })
 
-    test('should move to Create Post Page', async ({page, request}) => {
+    test('should move to Create Post Page', async ({page}) => {
         await postsPage.clickNewPost()
 
         const createPostText = await page.getByRole('heading', {name: 'Create New Post'})
         await expect(createPostText).toBeVisible()
     })
 
-    test('should move back to Login Page', async ({page, request}) => {
+    test('should move back to Login Page', async ({page}) => {
         await postsPage.logout()
 
         const loginText = await page.getByRole('heading', {name: 'Login'})

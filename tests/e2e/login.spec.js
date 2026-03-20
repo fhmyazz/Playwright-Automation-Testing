@@ -10,10 +10,12 @@ test.describe('Login Page - Positive Case', () => {
     })
 
     test('should login successfully with valid credentials', async ({page}) => {
-        const username = 'admin'
-        const password = 'admin123'
+        const payload = {
+            username: 'admin',
+            password: 'admin123'
+        }
 
-        await loginPage.login(username, password)
+        await loginPage.login(payload.username, payload.password)
 
         const isOnPosts = await loginPage.isOnPostsPage()
         expect(isOnPosts).toBe(true)
@@ -71,10 +73,12 @@ test.describe('Login Page - Negative Case', () => {
     })
 
     test('check login using non-existing user', async ({page}) => {
-        const username = 'admin'
-        const password = 'wrongpassword'
+        const payload = {
+            username: 'admin',
+            password: 'wrongpassword'
+        }
     
-        await loginPage.login(username, password)
+        await loginPage.login(payload.username, payload.password)
         await expect (loginPage.errorMessage).toBeVisible()
 
         const errorText = await loginPage.getErrorText()

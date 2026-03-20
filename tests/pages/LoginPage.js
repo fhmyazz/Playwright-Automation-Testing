@@ -21,8 +21,4 @@ export class LoginPage extends BasePage{
         await this.page.waitForURL('**/posts.html', {timeout: 5000})
         return this.page.url().includes('posts.html')
     }
-
-    async getToken(){
-        return await this.page.evaluate(() => localStorage.getItem('token'))
-    }
 }

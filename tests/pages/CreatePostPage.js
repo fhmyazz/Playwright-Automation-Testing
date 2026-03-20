@@ -14,7 +14,7 @@ export class CreatePostPage extends BasePage{
         this.errorMessage = page.getByRole('alert')
     }
 
-    async createNewPost(title, content, author){
+    async createNewPost(title, content){
         await this.titleInput.fill(title)
         await this.contentInput.fill(content)
         await this.newPostButton.click()

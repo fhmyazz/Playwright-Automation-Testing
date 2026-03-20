@@ -23,7 +23,6 @@ test.describe('Create Post Page - Positive', () => {
 
     test('should created Post with success message', async ({page}) => {
         const payload = {
-            author: 'test author',
             title: `title ${Date.now()}`,
             content: `content ${Date.now()}`
         }
@@ -55,9 +54,13 @@ test.describe('Create Post Page - Negative', () => {
         createPostPage = new CreatePostPage(page)
         authToken = await getAuthToken(request)
 
-        await page.addInitScript(token => {
+        await page.addInitScript(({token, user}) => {
             localStorage.setItem('token', token)
-        }, authToken)
+            localStorage.setItem('username', JSON.stringify(user))
+        }, {
+            token: authToken,
+            user: {username: 'admin'}
+        })
 
         await createPostPage.goto()
     })

@@ -16,9 +16,13 @@ test.describe('Posts Page', () => {
         authToken = await getAuthToken(request)
         
         // run before page builds
-        await page.addInitScript(token => {
+        await page.addInitScript(({token, user}) => {
             localStorage.setItem('token', token)
-        }, authToken)
+            localStorage.setItem('username', JSON.stringify(user))
+        }, {
+            token: authToken,
+            user: {username: 'admin'}
+        })
 
         await postsPage.goto()
     })

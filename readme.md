@@ -1,3 +1,5 @@
+[![Playwright Tests](https://github.com/fhmyazz/Playwright-Automation-Testing/actions/workflows/playwright.yml/badge.svg)](https://github.com/fhmyazz/Playwright-Automation-Testing/actions/workflows/playwright.yml)
+
 # 🎯 QA Automation Portfolio
 
 > End-to-End testing showcase using **Playwright**. Combining **API Backend, Web App Frontend, and Automation Testing** into a single workflow

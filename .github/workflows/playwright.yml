@@ -11,34 +11,34 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
   
-  steps:
-    - name: Github Checkout
-      uses: actions/checkout@v4
+    steps:
+      - name: Github Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js 
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Setup Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Install API Dependencies
-      run: |
-        cd api
-        node server.js &
-        sleep 3
+      - name: Install API Dependencies
+        run: |
+          cd api
+          node server.js &
+          sleep 3
 
-    - name: Install Playwright Dependencies
-      run: npm install
+      - name: Install Playwright Dependencies
+        run: npm install
 
-    - name: Install Browser
-      run: npx playwright install --with-deps chromium firefox
+      - name: Install Browser
+        run: npx playwright install --with-deps chromium firefox
 
-    - name: Run Playwright Tests
-      run: npx playwright test
+      - name: Run Playwright Tests
+        run: npx playwright test
 
-    - name: Upload Tests Report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 7
+      - name: Upload Tests Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

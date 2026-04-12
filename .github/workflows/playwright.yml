@@ -23,6 +23,11 @@ jobs:
       - name: Install API Dependencies
         run: |
           cd api
+          npm install
+      
+      - name: Start API server
+        run: |
+          cd api
           node server.js &
           sleep 3
 

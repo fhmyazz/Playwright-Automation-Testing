@@ -19,11 +19,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: 'npm'
 
       - name: Install API Dependencies
         run: |
           cd api
-          npm install
+          npm ci
       
       - name: Start API server
         run: |
@@ -32,9 +33,17 @@ jobs:
           sleep 3
 
       - name: Install Playwright Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install Browser
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright~${{ hashFiles('package-lock.json') }}
+
+      - name: Install Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium firefox
 
       - name: Run Playwright Tests

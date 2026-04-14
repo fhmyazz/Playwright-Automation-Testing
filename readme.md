@@ -63,8 +63,5 @@ npm start
 npm test
 ```
 
-## 🚧 Work in Progress
-- CI/CD Integrations
-
 ## Find me on:
 Linkedin: https://www.linkedin.com/in/muhammadfahmyaziz/

@@ -48,6 +48,9 @@ jobs:
 
       - name: Run Playwright Tests
         run: npx playwright test
+        env: 
+          API_URL: ${{ secrets.API_URL }}
+          BASE_URL: ${{ secrets.BASE_URL }}
 
       - name: Upload Tests Report
         uses: actions/upload-artifact@v4

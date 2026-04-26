@@ -46,6 +46,14 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium firefox
 
+      - name: Debug Environment
+        run: |
+          echo "API URL is using: ${{ secrets.API_URL != '' }}"
+          echo "BASE URL is using: ${{ secrets.BASE_URL != '' }}"
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+
       - name: Run Playwright Tests
         run: npx playwright test
         env: 

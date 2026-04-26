@@ -40,7 +40,7 @@ jobs:
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
-          key: playwright~${{ hashFiles('package-lock.json') }}
+          key: playwright-${{ hashFiles('package-lock.json') }}
 
       - name: Install Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'

@@ -12,10 +12,15 @@
     "setup:api": "cd ./api && npm install && node server.js &",
     "setup:web": "cd ./web && npx http-server frontend -p 8080 &"
   },
-  "keywords": ["qa", "playwright", "automation"],
+  "keywords": [
+    "qa",
+    "playwright",
+    "automation"
+  ],
   "author": "myy",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.58.2"
+    "@playwright/test": "^1.58.2",
+    "http-server": "^14.1.1"
   }
 }
